@@ -1,16 +1,22 @@
 extern crate iron;
-
 #[macro_use] extern crate mime;
 
 use iron::prelude::*;
 use iron::status;
+// use iron::IronResult;
+// use iron::Response;
+
 
 fn main() {
     println!("Serving on http://localhost:300...");
     Iron::new(get_form).http("localhost:3000").unwrap();
 }
 
-// 2020/08/24 IronResut in error ... expected enum `std::result::Result`, found `()`
+/* 
+ * 2020/08/24 ... IronResut in error ... expected enum `std::result::Result`, found `()`
+ * The error has been resolved. The reason is that there was semicolon(;) of the OK(response)... 
+ * So, it took 3 hours to resolve ( ；∀；)
+ */
 fn get_form(_request: &mut Request) -> IronResult<Response> {
     let mut response = Response::new();
 
@@ -27,5 +33,5 @@ fn get_form(_request: &mut Request) -> IronResult<Response> {
         </form>
     "#);
 
-    Ok(response);
+    Ok(response)
 }
