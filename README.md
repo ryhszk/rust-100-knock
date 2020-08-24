@@ -1,4 +1,4 @@
-# rust-100-knock
+# rust-100-knocks
 
 This repository is for rust training.  
 Create a simple project for Rust proficiency.   
